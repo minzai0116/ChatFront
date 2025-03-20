@@ -111,7 +111,7 @@ else:
 personality_prompt = get_personality_prompt(user_personality) if user_personality else "일반적인 대화를 원합니다."
 
 # 사용자 입력 받기
-if prompt := st.chat_input("What is up?"):
+if prompt := st.chat_input("오늘 하루는 어떠셨나요?"):
     # 사용자가 입력한 메시지 저장
     st.session_state.current_conversation.append({"role": "user", "content": prompt})
 
