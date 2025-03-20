@@ -1,4 +1,4 @@
 altair==4.2.2
-streamlit==1.15.0
+streamlit==1.43.2
 google-generativeai==0.2.0
 setuptools
