@@ -25,7 +25,7 @@ gemini_api_key = st.secrets["general"]["GEMINI_API_KEY"]
 # Google Gemini API 설정
 genai.configure(api_key=gemini_api_key)
 
-st.title("Cap Chatbot")
+st.title("심리 상담 챗봇")
 
 # 세션 상태 초기화 (대화 내용 저장)
 if "conversation_sections" not in st.session_state:
