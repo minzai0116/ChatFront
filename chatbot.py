@@ -25,7 +25,7 @@ gemini_api_key = st.secrets["general"]["GEMINI_API_KEY"]
 # Google Gemini API 설정
 genai.configure(api_key=gemini_api_key)
 
-st.title("Cap Chatbot")
+st.title("마음의 소리")
 
 # 세션 상태 초기화 (대화 내용 저장)
 if "conversation_sections" not in st.session_state:
@@ -107,7 +107,7 @@ if "current_conversation" in st.session_state and st.session_state.current_conve
             st.markdown(message["content"])
 
 # 사용자 입력 받기
-if prompt := st.chat_input("What is up?"):
+if prompt := st.chat_input("오늘 당신의 마음의 소리는 무엇인가요?"):
     st.session_state.current_conversation.append({"role": "user", "content": prompt})
 
     with st.chat_message("user"):
