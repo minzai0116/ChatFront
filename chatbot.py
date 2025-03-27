@@ -147,6 +147,3 @@ def save_conversation():
 # Save Conversation 버튼 클릭 시
 if st.sidebar.button("대화 파일로 만들기"):
     save_conversation()
-
-        except Exception as e:
-            st.error(f"Error generating response: {e}")
