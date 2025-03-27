@@ -65,7 +65,7 @@ def get_personality_prompt(style):
     else:
         return "일반적인 대화를 원합니다."
 
-# 스타일에 맞는 프롬프트 가져오기
+# 상담 스타일에 맞는 프롬프트 가져오기
 personality_prompt = get_personality_prompt(st.session_state.selected_style)
 st.session_state.personality_prompt = personality_prompt  # 성격 정보 세션 상태에 저장
 
@@ -124,6 +124,29 @@ if prompt := st.chat_input("오늘 당신의 마음의 소리는 무엇인가요
             st.markdown(response.text)
 
             st.session_state.current_conversation.append({"role": "assistant", "content": response.text})
+
+        except Exception as e:
+            st.error(f"Error generating response: {e}")
+
+
+# 대화 내용 저장
+def save_conversation():
+    conversation_text = "\n".join([f"{message['role']}: {message['content']}" for message in st.session_state.current_conversation])
+
+    # 대화 내용을 바로 다운로드
+    st.sidebar.download_button(
+        label="TXT파일로 저장하기",
+        data=conversation_text,
+        file_name="conversation.txt",
+        mime="text/plain"
+    )
+    
+    # 대화 저장 완료 메시지 표시
+    st.sidebar.success("Conversation saved and ready to download!")
+
+# Save Conversation 버튼 클릭 시
+if st.sidebar.button("대화 파일로 만들기"):
+    save_conversation()
 
         except Exception as e:
             st.error(f"Error generating response: {e}")
