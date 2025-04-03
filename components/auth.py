@@ -97,7 +97,7 @@ def show_login():
 
         token = oauth2.authorize_button(
             name="Google 로그인",
-            redirect_uri="http://localhost:8501",
+            redirect_uri="https://chatfront-kmj.streamlit.app",
             scope="https://www.googleapis.com/auth/userinfo.email",
             key="google-login-button",
         )
